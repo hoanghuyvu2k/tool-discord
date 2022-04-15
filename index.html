@@ -9,12 +9,17 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
     <link href="./styles.css" rel="stylesheet" />
     <title>Hello World!</title>
   </head>
   <body class="container">
-    <div class="form-group">
+    <!-- <div class="form-group">
+      
       <label for="exampleInputEmail1">Email address</label>
       <input
         type="email"
@@ -32,15 +37,46 @@
         id="password"
         placeholder="Password"
       />
+    </div> -->
+    <div aria-live="polite" aria-atomic="true" style="position: relative">
+      <div
+        class="toast"
+        style="position: absolute; top: 0; right: 0"
+        data-delay="5000"
+      >
+        <div class="toast-header">
+          <img src="..." class="rounded mr-2" alt="..." />
+          <strong class="mr-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <button
+            type="button"
+            class="ml-2 mb-1 close"
+            data-dismiss="toast"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">Hello, world! This is a toast message.</div>
+      </div>
     </div>
-
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Nhập comment</label>
+      <textarea class="form-control" id="comment" rows="3"></textarea>
+    </div>
     <button type="myButton" class="btn btn-primary" onclick="login()">
-      Submit
+      Login
     </button>
     <button type="myButton" class="btn btn-info" onclick="getListRoom()">
-      Submit
+      Get list channel
     </button>
-    <div id="list-channel"></div>
+    <button type="myButton" class="btn btn-info" onclick="comment()">
+      Comment
+    </button>
+    <button type="myButton" class="btn btn-info" onclick="waitForComment()">
+      Wait for able to comment
+    </button>
+    <div id="list-server"></div>
     <script defer src="./renderer.js"></script>
 
     <!-- You can also require other files to run in this process -->
