@@ -20,6 +20,9 @@
     "electron": "^17.1.2"
   },
   "dependencies": {
-    "puppeteer": "^13.5.1"
+    "fs-extra": "^11.2.0",
+    "puppeteer": "^13.5.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-with-fingerprints": "^1.4.6"
   }
 }

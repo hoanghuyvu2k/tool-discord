@@ -13,11 +13,13 @@ var broswer;
 const login = async () => {
   // email = document.getElementById("email").value;
   // password = document.getElementById("password").value;
+  console.log("click login");
   browser = await puppeteer.launch({
     headless: false,
     executablePath:
       "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    userDataDir: "/tmp/myChromeSession",
+    userDataDir: "C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data",
+    args: ["--profile-directory=Profile 2"],
   });
   page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 600 });
