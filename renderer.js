@@ -13,17 +13,41 @@ var broswer;
 const login = async () => {
   // email = document.getElementById("email").value;
   // password = document.getElementById("password").value;
-  console.log("click login");
+  console.log("click login", puppeteer.executablePath());
+
   browser = await puppeteer.launch({
     headless: false,
     executablePath:
       "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    userDataDir: "C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data",
-    args: ["--profile-directory=Profile 2"],
+    userDataDir: "D:\\usrdata\\puppeteer_crawler_profile1",
+    // args: ["--profile-directory=Profile 2"],
+    // args: [
+    //   "--disable-extensions-except=/path/to/my/extension",
+    //   "--load-extension=/path/to/my/extension",
+    //   "--user-data-dir=%userprofile%\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2",
+    // ],
   });
+  browser2 = await puppeteer.launch({
+    headless: false,
+    executablePath:
+      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    userDataDir: "D:\\usrdata\\puppeteer_crawler_profile2",
+    // args: ["--profile-directory=Profile 2"],
+    // args: [
+    //   "--disable-extensions-except=/path/to/my/extension",
+    //   "--load-extension=/path/to/my/extension",
+    //   "--user-data-dir=%userprofile%\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2",
+    // ],
+  });
+  console.log(page);
   page = await browser.newPage();
+
   await page.setViewport({ width: 1280, height: 600 });
   await page.goto("https://discord.com/login");
+  page2 = await browser2.newPage();
+
+  await page2.setViewport({ width: 1280, height: 600 });
+  await page2.goto("https://youtube.com");
   // await page.type('[name="email"]', email);
   // await page.type('[name="password"]', password);
   // await page.click('[type="submit"]');
