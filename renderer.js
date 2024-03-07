@@ -5,11 +5,15 @@
 // selectively enable features needed in the rendering
 // process.
 
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-extra");
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+puppeteer.use(StealthPlugin());
+
 var page;
 var email;
 var password;
 var broswer;
+console.log("still ok");
 const login = async () => {
   // email = document.getElementById("email").value;
   // password = document.getElementById("password").value;
@@ -19,7 +23,7 @@ const login = async () => {
     headless: false,
     executablePath:
       "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    userDataDir: "D:\\usrdata\\puppeteer_crawler_profile1",
+    userDataDir: "D:\\usrdata\\puppeteer_crawler_profile4",
     // args: ["--profile-directory=Profile 2"],
     // args: [
     //   "--disable-extensions-except=/path/to/my/extension",
@@ -27,27 +31,27 @@ const login = async () => {
     //   "--user-data-dir=%userprofile%\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2",
     // ],
   });
-  browser2 = await puppeteer.launch({
-    headless: false,
-    executablePath:
-      "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    userDataDir: "D:\\usrdata\\puppeteer_crawler_profile2",
-    // args: ["--profile-directory=Profile 2"],
-    // args: [
-    //   "--disable-extensions-except=/path/to/my/extension",
-    //   "--load-extension=/path/to/my/extension",
-    //   "--user-data-dir=%userprofile%\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2",
-    // ],
-  });
+  // browser2 = await puppeteer.launch({
+  //   headless: false,
+  //   executablePath:
+  //     "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  //   userDataDir: "D:\\usrdata\\puppeteer_crawler_profile2",
+  //   // args: ["--profile-directory=Profile 2"],
+  //   // args: [
+  //   //   "--disable-extensions-except=/path/to/my/extension",
+  //   //   "--load-extension=/path/to/my/extension",
+  //   //   "--user-data-dir=%userprofile%\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2",
+  //   // ],
+  // });
   console.log(page);
   page = await browser.newPage();
 
   await page.setViewport({ width: 1280, height: 600 });
   await page.goto("https://discord.com/login");
-  page2 = await browser2.newPage();
 
-  await page2.setViewport({ width: 1280, height: 600 });
-  await page2.goto("https://youtube.com");
+  // page2 = await browser2.newPage();
+  // await page2.setViewport({ width: 1280, height: 600 });
+  // await page2.goto("https://youtube.com");
   // await page.type('[name="email"]', email);
   // await page.type('[name="password"]', password);
   // await page.click('[type="submit"]');
